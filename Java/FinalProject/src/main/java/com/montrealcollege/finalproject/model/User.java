@@ -67,17 +67,23 @@ public class User {
 	@CreationTimestamp
 	private Date createdAt;
 	
-	@OneToMany(fetch=FetchType.LAZY, mappedBy = "company",
-			cascade={CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+	@OneToMany(fetch=FetchType.LAZY, mappedBy = "company", cascade=CascadeType.ALL)
 	private List<Job> jobs;
+	
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="user", cascade=CascadeType.ALL)
+	private List<Education> educations;
+	
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="user", cascade=CascadeType.ALL)
+	private List<Skills> skillList;
+	
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="user", cascade=CascadeType.ALL)
+	private List<WorkExperience> experiences;
 	
 	@ManyToMany(fetch=FetchType.LAZY, 
 			cascade={CascadeType.MERGE, CascadeType.DETACH, CascadeType.PERSIST, CascadeType.REFRESH})
 	@JoinTable(name="application", joinColumns=@JoinColumn(name="user_id"), 
 	inverseJoinColumns=@JoinColumn(name="job_id"))
 	private List<Job> applied;
-	
-	
 	
 	public int getId() {
 		return id;
@@ -157,10 +163,54 @@ public class User {
 		jobs.add(tempJob);
 		tempJob.setCompany(this);
 	}
+	public List<Education> getEducations() {
+		return educations;
+	}
+	public void setEducations(List<Education> educations) {
+		this.educations = educations;
+	}
+	public void addEducation(Education tempedu) {
+		if(educations == null)
+			educations = new ArrayList<>();
+		educations.add(tempedu);
+		tempedu.setUser(this);
+	}
+	public List<Skills> getSkillList() {
+		return skillList;
+	}
+	public void setSkillList(List<Skills> skillList) {
+		this.skillList = skillList;
+	}
+	public void addSkill(Skills skill) {
+		if(skillList == null)
+			skillList = new ArrayList<>();
+		skillList.add(skill);
+		skill.setUser(this);
+	}
+	public List<WorkExperience> getExperiences() {
+		return experiences;
+	}
+	public void setExperiences(List<WorkExperience> experiences) {
+		this.experiences = experiences;
+	}
+	public void addExperience(WorkExperience tempExp) {
+		if(experiences == null)
+			experiences = new ArrayList<>();
+		experiences.add(tempExp);
+		tempExp.setUser(this);
+	}
+	
 	public List<Job> getApplied() {
 		return applied;
 	}
 	public void setApplied(List<Job> applied) {
 		this.applied = applied;
+	}
+	
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", login=" + login + ", password=" + password + ", email=" + email
+				+ ", type=" + type + ", location=" + location + ", role=" + role + ", phone=" + phone + ", description="
+				+ description + ", createdAt=" + createdAt + "]";
 	}
 }
