@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.montrealcollege.finalproject.model.Skills;
 
 @Repository
-public class SkilsImpl implements SkillsDAO {
+public class SkillsImpl implements SkillsDAO {
 	
 	@Autowired
 	private SessionFactory sf;
