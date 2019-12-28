@@ -10,6 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="work_experience")
@@ -23,10 +28,13 @@ public class WorkExperience{
 	@Column
 	private String title;
 	
-	@Column
+	@CreationTimestamp
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@Column(name="start_date")
 	private Date startDate;
 	
-	@Column
+	@Column(name="end_date")
 	private String endDate;
 	
 	@Column

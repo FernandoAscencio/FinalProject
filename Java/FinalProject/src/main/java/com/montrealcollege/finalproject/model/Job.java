@@ -19,6 +19,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="job")
@@ -48,12 +49,14 @@ public class Job {
 	private String city;
 	
 	@Column(name="created_at")
-	@Temporal(TemporalType.DATE)
 	@CreationTimestamp
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date createdAt;
 	
 	@Column(name="end_date")
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date endDate;
 	
 	@ManyToOne(fetch=FetchType.LAZY,

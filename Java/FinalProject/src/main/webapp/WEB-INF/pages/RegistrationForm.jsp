@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Registration</title>
+<title>User Registration</title>
 </head>
 <body>
 	<div align="center">
@@ -65,7 +65,11 @@
 				<tr>
 					<td>Type: </td>
 					<td><form:errors path="type" />
-						<form:input path="" /></td>
+						<form:select path="type">
+							<form:option value="--" label="--Choose"/>
+							<form:option value="COMP" label="Company"/>
+							<form:option value="CAND" label="Candidate"/>
+						</form:select></td>
 				</tr>
 			</table>
 		</form:form>
