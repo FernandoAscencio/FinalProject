@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -27,5 +28,10 @@ Welcome page:
 	<div class=list>
 		<!-- List Job postings -->
 	</div>
+=======
+<html>
+<body>
+<h2>Hello World!</h2>
+>>>>>>> Copy the entire project
 </body>
 </html>

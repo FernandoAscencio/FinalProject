@@ -1,5 +1,6 @@
 package com.montrealcollege.finalproject.model;
 
+<<<<<<< HEAD
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -48,4 +49,8 @@ public class Skills {
 	public String toString() {
 		return "Skills [id=" + id + ", skills=" + skills + "]";
 	}
+=======
+public class Skills {
+
+>>>>>>> Copy the entire project
 }

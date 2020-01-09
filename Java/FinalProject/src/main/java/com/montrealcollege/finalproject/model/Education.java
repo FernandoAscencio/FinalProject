@@ -1,5 +1,6 @@
 package com.montrealcollege.finalproject.model;
 
+<<<<<<< HEAD
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -95,4 +96,8 @@ public class Education {
 		return "Education [id=" + id + ", program=" + program + ", institute=" + institute + ", startDate=" + startDate
 				+ ", endDate=" + endDate + ", description=" + description + "]";
 	}
+=======
+public class Education {
+
+>>>>>>> Copy the entire project
 }

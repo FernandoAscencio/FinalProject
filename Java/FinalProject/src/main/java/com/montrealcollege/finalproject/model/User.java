@@ -67,6 +67,7 @@ public class User {
 	@CreationTimestamp
 	private Date createdAt;
 	
+<<<<<<< HEAD
 	@OneToMany(fetch=FetchType.LAZY, mappedBy = "company", cascade=CascadeType.ALL)
 	private List<Job> jobs;
 	
@@ -79,12 +80,23 @@ public class User {
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="user", cascade=CascadeType.ALL)
 	private List<WorkExperience> experiences;
 	
+=======
+	@OneToMany(fetch=FetchType.LAZY, mappedBy = "company",
+			cascade={CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+	private List<Job> jobs;
+	
+>>>>>>> Copy the entire project
 	@ManyToMany(fetch=FetchType.LAZY, 
 			cascade={CascadeType.MERGE, CascadeType.DETACH, CascadeType.PERSIST, CascadeType.REFRESH})
 	@JoinTable(name="application", joinColumns=@JoinColumn(name="user_id"), 
 	inverseJoinColumns=@JoinColumn(name="job_id"))
 	private List<Job> applied;
 	
+<<<<<<< HEAD
+=======
+	
+	
+>>>>>>> Copy the entire project
 	public int getId() {
 		return id;
 	}
@@ -163,6 +175,7 @@ public class User {
 		jobs.add(tempJob);
 		tempJob.setCompany(this);
 	}
+<<<<<<< HEAD
 	public List<Education> getEducations() {
 		return educations;
 	}
@@ -200,12 +213,15 @@ public class User {
 		tempExp.setUser(this);
 	}
 	
+=======
+>>>>>>> Copy the entire project
 	public List<Job> getApplied() {
 		return applied;
 	}
 	public void setApplied(List<Job> applied) {
 		this.applied = applied;
 	}
+<<<<<<< HEAD
 	
 	@Override
 	public String toString() {
@@ -213,4 +229,6 @@ public class User {
 				+ ", type=" + type + ", location=" + location + ", role=" + role + ", phone=" + phone + ", description="
 				+ description + ", createdAt=" + createdAt + "]";
 	}
+=======
+>>>>>>> Copy the entire project
 }

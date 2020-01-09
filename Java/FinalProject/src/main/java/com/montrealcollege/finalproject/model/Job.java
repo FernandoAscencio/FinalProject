@@ -19,7 +19,10 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
+<<<<<<< HEAD
 import org.springframework.format.annotation.DateTimeFormat;
+=======
+>>>>>>> Copy the entire project
 
 @Entity
 @Table(name="job")
@@ -49,14 +52,22 @@ public class Job {
 	private String city;
 	
 	@Column(name="created_at")
+<<<<<<< HEAD
 	@CreationTimestamp
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
+=======
+	@Temporal(TemporalType.DATE)
+	@CreationTimestamp
+>>>>>>> Copy the entire project
 	private Date createdAt;
 	
 	@Column(name="end_date")
 	@Temporal(TemporalType.DATE)
+<<<<<<< HEAD
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
+=======
+>>>>>>> Copy the entire project
 	private Date endDate;
 	
 	@ManyToOne(fetch=FetchType.LAZY,
