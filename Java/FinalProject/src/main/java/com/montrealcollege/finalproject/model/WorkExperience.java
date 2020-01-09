@@ -1,6 +1,6 @@
 package com.montrealcollege.finalproject.model;
 
-<<<<<<< HEAD
+
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -87,8 +87,4 @@ public class WorkExperience{
 		return "WorkExperience [id=" + id + ", title=" + title + ", startDate=" + startDate + ", endDate=" + endDate
 				+ ", description=" + description + "]";
 	}
-=======
-public class WorkExperience {
-
->>>>>>> Copy the entire project
 }
