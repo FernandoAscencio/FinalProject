@@ -19,7 +19,7 @@
 					<c:set var="now" value="<%=new java.util.Date()%>" />
 					<fmt:formatDate pattern="dd/MM/yyyy" value="${now}" var="today" />
 					<td>Created:</td>
-					<td><form:input path="createdP" value="${today}"
+					<td><form:input path="createdAt" value="${today}"
 							readonly="true" /></td>
 				</tr>
 				<tr>
@@ -30,7 +30,7 @@
 				<tr>
 					<td>Password:</td>
 					<td><form:errors path="password" />
-						<form:input path="password" /></td>
+						<form:input path="password" type="password"/></td>
 				</tr>
 				<tr>
 					<td>Role: </td>
@@ -72,6 +72,7 @@
 						</form:select></td>
 				</tr>
 			</table>
+			<input type="Submit" value="Submit" />
 		</form:form>
 	</div>
 </body>

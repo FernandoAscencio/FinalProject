@@ -16,7 +16,7 @@ public class WrokExpServiceImpl implements WorkExpericenceService {
 
 	@Autowired
 	private WorkExpDAO wedao;
-	
+
 	@Override
 	@Transactional
 	public void addWorkExperience(WorkExperience we) {
@@ -50,8 +50,8 @@ public class WrokExpServiceImpl implements WorkExpericenceService {
 	public WorkExperience getWorkExperience(int weId) {
 		return wedao.getWorkExperience(weId);
 	}
-	
-	public void setWorkExpDAO (WorkExpImpl dao) {
+
+	public void setWorkExpDAO(WorkExpImpl dao) {
 		this.wedao = dao;
 	}
 }

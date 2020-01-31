@@ -1,6 +1,5 @@
 package com.montrealcollege.finalproject.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,20 +9,28 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "main_skills")
-public class Skills {
-
+@Table(name="application")
+public class Application {
+	
 	@Id
 	@GeneratedValue
-	@Column
+	@Column(name="id")
 	private int id;
-
-	@Column
-	private String skills;
-
-	@ManyToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
-	@JoinColumn(name = "user_id")
+	
+	@ManyToOne
+	@JoinColumn(name="job_id")
+	private Job job;
+	
+	@ManyToOne
+	@JoinColumn(name="user_id")
 	private User user;
+	
+	public Application() {}
+	
+	public Application(Job job, User user) {
+		this.job = job;
+		this.user = user;
+	}
 
 	public int getId() {
 		return id;
@@ -33,12 +40,12 @@ public class Skills {
 		this.id = id;
 	}
 
-	public String getSkills() {
-		return skills;
+	public Job getJob() {
+		return job;
 	}
 
-	public void setSkills(String skills) {
-		this.skills = skills;
+	public void setJob(Job job) {
+		this.job = job;
 	}
 
 	public User getUser() {
@@ -51,6 +58,6 @@ public class Skills {
 
 	@Override
 	public String toString() {
-		return "Skills [id=" + id + ", skills=" + skills + "]";
+		return "Application [id=" + id + "]";
 	}
 }

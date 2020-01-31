@@ -11,10 +11,10 @@ import com.montrealcollege.finalproject.model.Job;
 
 @Repository
 public class JobImpl implements JobDAO {
-	
+
 	@Autowired
 	private SessionFactory sf;
-	
+
 	@Override
 	@Transactional
 	public void addJob(Job job) {
@@ -24,7 +24,7 @@ public class JobImpl implements JobDAO {
 	@Override
 	public void deleteJob(int jobId) {
 		Job job = (Job) sf.getCurrentSession().load(Job.class, jobId);
-		if (null!=job)
+		if (null != job)
 			sf.getCurrentSession().delete(job);
 	}
 
@@ -37,7 +37,7 @@ public class JobImpl implements JobDAO {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Job> listJobByUser(int userId) {
-		List<Job> jobs = (List<Job>) sf.getCurrentSession().createQuery("from Job E where E.user.id = "+userId).list();
+		List<Job> jobs = (List<Job>) sf.getCurrentSession().createQuery("from Job E where E.company.id = " + userId).list();
 		return jobs;
 	}
 

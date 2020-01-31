@@ -13,10 +13,10 @@ import com.montrealcollege.finalproject.model.Education;
 @Service
 @Transactional
 public class EducationServiceImpl implements EducationService {
-	
+
 	@Autowired
 	private EducationDAO edao;
-	
+
 	@Override
 	@Transactional
 	public void addEducation(Education education) {
@@ -50,7 +50,7 @@ public class EducationServiceImpl implements EducationService {
 	public Education getEducation(int eduId) {
 		return edao.getEducation(eduId);
 	}
-	
+
 	public void setEducationDAO(EducationImpl dao) {
 		this.edao = dao;
 	}

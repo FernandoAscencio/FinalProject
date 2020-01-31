@@ -16,7 +16,7 @@ public class SkillsServiceImpl implements SkillsService {
 
 	@Autowired
 	private SkillsDAO sdao;
-	
+
 	@Override
 	@Transactional
 	public void addSkills(Skills skills) {
@@ -37,7 +37,7 @@ public class SkillsServiceImpl implements SkillsService {
 
 	@Override
 	@Transactional
-	public List<Skills> listSkillsByUser(int userId) {
+	public Skills listSkillsByUser(int userId) {
 		return sdao.listSkillsByUser(userId);
 	}
 
@@ -50,7 +50,7 @@ public class SkillsServiceImpl implements SkillsService {
 	public Skills getSkills(int skillsId) {
 		return sdao.getSkills(skillsId);
 	}
-	
+
 	public void setSkillsDAO(SkillsImpl dao) {
 		this.sdao = dao;
 	}

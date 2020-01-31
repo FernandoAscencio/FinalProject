@@ -5,7 +5,7 @@ import java.util.List;
 import com.montrealcollege.finalproject.model.Job;
 
 public interface JobService {
-	
+
 	public void addJob(Job job);
 
 	public void deleteJob(int jobId);

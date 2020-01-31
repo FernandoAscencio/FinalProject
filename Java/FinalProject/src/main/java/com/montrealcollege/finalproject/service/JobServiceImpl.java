@@ -16,7 +16,7 @@ public class JobServiceImpl implements JobService {
 
 	@Autowired
 	private JobDAO jdao;
-	
+
 	@Override
 	@Transactional
 	public void addJob(Job job) {
@@ -50,7 +50,7 @@ public class JobServiceImpl implements JobService {
 	public Job getJob(int jobId) {
 		return jdao.getJob(jobId);
 	}
-	
+
 	public void setJobDAO(JobImpl dao) {
 		this.jdao = dao;
 	}

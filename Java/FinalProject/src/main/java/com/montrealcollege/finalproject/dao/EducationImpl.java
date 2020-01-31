@@ -11,10 +11,10 @@ import com.montrealcollege.finalproject.model.Education;
 
 @Repository
 public class EducationImpl implements EducationDAO {
-	
+
 	@Autowired
 	private SessionFactory sf;
-	
+
 	@Override
 	@Transactional
 	public void addEducation(Education education) {
@@ -24,7 +24,7 @@ public class EducationImpl implements EducationDAO {
 	@Override
 	public void deleteEducation(int eduId) {
 		Education edu = (Education) sf.getCurrentSession().load(Education.class, eduId);
-		if (null!=edu)
+		if (null != edu)
 			sf.getCurrentSession().delete(edu);
 	}
 
@@ -37,7 +37,8 @@ public class EducationImpl implements EducationDAO {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Education> listEducationByUser(int userId) {
-		List<Education> edus = (List<Education>) sf.getCurrentSession().createQuery("from Education E where E.user.id = "+userId).list();
+		List<Education> edus = (List<Education>) sf.getCurrentSession()
+				.createQuery("from Education E where E.user.id = " + userId).list();
 		return edus;
 	}
 

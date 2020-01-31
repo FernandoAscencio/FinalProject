@@ -64,6 +64,7 @@
 						<form:input path="endDate" /></td>
 				</tr>
 			</table>
+			<input type="Submit" value="Submit" />
 		</form:form>
 	</div>
 </body>

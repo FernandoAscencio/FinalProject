@@ -8,15 +8,16 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.montrealcollege.finalproject.dao.UserDAO;
 import com.montrealcollege.finalproject.dao.UserImpl;
+import com.montrealcollege.finalproject.model.Login;
 import com.montrealcollege.finalproject.model.User;
 
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {
-	
+
 	@Autowired
 	private UserDAO udao;
-	
+
 	@Override
 	@Transactional
 	public void addUser(User user) {
@@ -44,9 +45,14 @@ public class UserServiceImpl implements UserService {
 	public User getUser(int userId) {
 		return udao.getUser(userId);
 	}
-	
-	public void setUserDAO (UserImpl dao) {
+
+	public void setUserDAO(UserImpl dao) {
 		this.udao = dao;
+	}
+
+	@Override
+	public User validateUser(Login login) {
+		return udao.validateUser(login);
 	}
 
 }

@@ -11,10 +11,10 @@ import com.montrealcollege.finalproject.model.Skills;
 
 @Repository
 public class SkillsImpl implements SkillsDAO {
-	
+
 	@Autowired
 	private SessionFactory sf;
-	
+
 	@Override
 	@Transactional
 	public void addSkills(Skills skills) {
@@ -24,7 +24,7 @@ public class SkillsImpl implements SkillsDAO {
 	@Override
 	public void deleteSkills(int skillsId) {
 		Skills skills = (Skills) sf.getCurrentSession().load(Skills.class, skillsId);
-		if (null!=skills)
+		if (null != skills)
 			sf.getCurrentSession().delete(skills);
 	}
 
@@ -34,11 +34,11 @@ public class SkillsImpl implements SkillsDAO {
 		return sf.getCurrentSession().createQuery("from Skills").list();
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public List<Skills> listSkillsByUser(int userId) {
-		List<Skills> skillss = (List<Skills>) sf.getCurrentSession().createQuery("from Skills E where E.user.id = "+userId).list();
-		return skillss;
+	public Skills listSkillsByUser(int userId) {
+		Skills skills = (Skills) sf.getCurrentSession()
+				.createQuery("from Skills E where E.user.id = " + userId).uniqueResult();
+		return skills;
 	}
 
 	@Override

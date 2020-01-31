@@ -2,10 +2,11 @@ package com.montrealcollege.finalproject.service;
 
 import java.util.List;
 
+import com.montrealcollege.finalproject.model.Login;
 import com.montrealcollege.finalproject.model.User;
 
 public interface UserService {
-	
+
 	public void addUser(User user);
 
 	public void deleteUser(int userId);
@@ -15,4 +16,6 @@ public interface UserService {
 	public User updateUser(User user);
 
 	public User getUser(int userId);
+	
+	public User validateUser(Login login);
 }

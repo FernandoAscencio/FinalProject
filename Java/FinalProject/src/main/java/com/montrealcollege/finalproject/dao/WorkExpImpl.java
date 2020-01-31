@@ -37,7 +37,8 @@ public class WorkExpImpl implements WorkExpDAO {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<WorkExperience> listWorkExperienceByUser(int userId) {
-		List<WorkExperience> wes = (List<WorkExperience>) sf.getCurrentSession().createQuery("from WorkExperience E where E.user.id = "+userId).list();
+		List<WorkExperience> wes = (List<WorkExperience>) sf.getCurrentSession()
+				.createQuery("from WorkExperience E where E.user.id = " + userId).list();
 		return wes;
 	}
 

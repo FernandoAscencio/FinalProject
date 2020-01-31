@@ -7,11 +7,9 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -21,8 +19,8 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
-@Entity @Table(name="job")
-
+@Entity
+@Table(name = "job")
 public class Job {
 
 	@Id
@@ -48,27 +46,24 @@ public class Job {
 	@Column
 	private String city;
 
-	@Column(name="created_at")
+	@Column(name = "created_at")
 	@CreationTimestamp
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date createdAt;
 
-	@Column(name="end_date")
+	@Column(name = "end_date")
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
-
 	private Date endDate;
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.MERGE, CascadeType.DETACH, CascadeType.PERSIST,
-			CascadeType.REFRESH })
+	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.DETACH, CascadeType.PERSIST, CascadeType.REFRESH })
 	@JoinColumn(name = "comp_id")
 	private User company;
 
-	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.MERGE, CascadeType.DETACH, CascadeType.PERSIST,
-			CascadeType.REFRESH })
-	@JoinTable(name = "applicantion", joinColumns = @JoinColumn(name = "job_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
-	private List<User> applicant;
+	@ManyToMany(cascade = { CascadeType.MERGE, CascadeType.DETACH, CascadeType.PERSIST,
+			CascadeType.REFRESH }, mappedBy = "job")
+	private List<Application> applicant;
 
 	public int getId() {
 		return id;
@@ -150,15 +145,15 @@ public class Job {
 		this.company = company;
 	}
 
-	public List<User> getApplicant() {
+	public List<Application> getApplicant() {
 		return applicant;
 	}
 
-	public void setApplicant(List<User> applicant) {
+	public void setApplicant(List<Application> applicant) {
 		this.applicant = applicant;
 	}
 
-	public void addApplicant(User tempApplicant) {
+	public void addApplicant(Application tempApplicant) {
 		if (applicant == null)
 			applicant = new ArrayList<>();
 		applicant.add(tempApplicant);
