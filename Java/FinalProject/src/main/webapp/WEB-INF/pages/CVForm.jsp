@@ -30,10 +30,86 @@
 
 		<c:set var="now" value="<%=new java.util.Date()%>" />
 		<fmt:formatDate pattern="dd/MM/yyyy" value="${now}" var="today" />
+		<c:if test="${session.userId == cv.userId}">
+			<div class="add">
+				<details>
+					<summary>Add Education</summary>
+					<form:form action="addEducation" method="Post" modelAttribute="edu">
+						<table>
+							<form:hidden path="id" />
+							<tr>
+								<th colspan="4">Program:</th>
+							</tr>
+							<tr>
+								<td colspan="4"><form:input path="program" /></td>
+							</tr>
+							<tr>
+								<th colspan="4">Institute:</th>
+							</tr>
+							<tr>
+								<td colspan="4"><form:input path="institute" /></td>
+							</tr>
+							<tr>
+								<td>Start:</td>
+								<td><form:input path="startDate" /></td>
+								<td>Finish:</td>
+								<td><form:input path="endDate" /></td>
+							</tr>
+							<tr>
+								<th colspan="4">Description:</th>
+							</tr>
+							<tr>
+								<td colspan="4"><form:textarea path="description" /></td>
+							</tr>
+						</table>
+						<input type="Submit" value="Add" />
+					</form:form>
+				</details>
+			</div>
+		</c:if>
+		<c:if test="${session.userId == cv.userId}">
+			<div class="add">
+				<details>
+					<summary>Add Work Experience</summary>
+					<form:form action="addWorkExp" method="post" modelAttribute="we">
+						<table>
+							<form:hidden path="id" />
+							<tr>
+								<th colspan="4">Title:</th>
+							</tr>
+							<tr>
+								<td colspan="4"><form:input path="title" /></td>
+							</tr>
+							<tr>
+								<td>Start:</td>
+								<td><form:input path="startDate" /></td>
+								<td>Finish:</td>
+								<td><form:input path="endDate" /></td>
+							</tr>
+							<tr>
+								<th colspan="4">Description:</th>
+							</tr>
+							<tr>
+								<td colspan="4"><form:textarea path="description" /></td>
+							</tr>
+						</table>
+						<input type="Submit" value="Add" />
+					</form:form>
+				</details>
+			</div>
+		</c:if>
 		<div class="display">
 			<form:form action="saveCV" method="post" modelAttribute="cv">
 				<form:hidden path="userId" />
 				<table>
+					<tr>
+						<th colspan="4"><h2>Skills</h2></th>
+					</tr>
+					<tr>
+						<form:hidden path="skills.id" />
+						<td colspan="4"><form:textarea path="skills.skills"
+								value="${cv.skills.skills}" readonly="${readonly}" /></td>
+					</tr>
 					<tr>
 						<th colspan="4"><h2>Education</h2></th>
 					</tr>
@@ -79,14 +155,6 @@
 						</c:if>
 					</c:forEach>
 					<tr>
-						<th colspan="4"><h2>Skills</h2></th>
-					</tr>
-					<tr>
-						<form:hidden path="skills.id" />
-						<td colspan="4"><form:textarea path="skills.skills"
-								value="${cv.skills.skills}" readonly="${readonly}" /></td>
-					</tr>
-					<tr>
 						<th colspan="4"><h2>Work Experience</h2></th>
 					</tr>
 					<c:forEach items="${cv.employment}" var="we" varStatus="loop">
@@ -126,66 +194,6 @@
 					<input type="Submit" value="Save" />
 				</c:if>
 			</form:form>
-		</div>
-		<div class="add">
-			<c:if test="${session.userId == cv.userId}">
-				<form:form action="addEducation" method="Post" modelAttribute="edu">
-					<h2>Add Education</h2>
-					<table>
-						<form:hidden path="id" />
-						<tr>
-							<th colspan="4">Program:</th>
-						</tr>
-						<tr>
-							<td colspan="4"><form:input path="program" /></td>
-						</tr>
-						<tr>
-							<th colspan="4">Institute:</th>
-						</tr>
-						<tr>
-							<td colspan="4"><form:input path="institute" /></td>
-						</tr>
-						<tr>
-							<td>Start:</td>
-							<td><form:input path="startDate" /></td>
-							<td>Finish:</td>
-							<td><form:input path="endDate" /></td>
-						</tr>
-						<tr>
-							<th colspan="4">Description:</th>
-						</tr>
-						<tr>
-							<td colspan="4"><form:textarea path="description" /></td>
-						</tr>
-					</table>
-					<input type="Submit" value="Add" />
-				</form:form>
-				<form:form action="addWorkExp" method="post" modelAttribute="we">
-					<h2>Add Work Experience</h2>
-					<table>
-						<form:hidden path="id" />
-						<tr>
-							<th colspan="4">Title:</th>
-						</tr>
-						<tr>
-							<td colspan="4"><form:input path="title" /></td>
-						</tr>
-						<tr>
-							<td>Start:</td>
-							<td><form:input path="startDate" /></td>
-							<td>Finish:</td>
-							<td><form:input path="endDate" /></td>
-						</tr>
-						<tr>
-							<th colspan="4">Description:</th>
-						</tr>
-						<tr>
-							<td colspan="4"><form:textarea path="description" /></td>
-						</tr>
-					</table>
-					<input type="Submit" value="Add" />
-				</form:form>
-			</c:if>
 		</div>
 	</div>
 </body>

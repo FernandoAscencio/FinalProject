@@ -10,10 +10,14 @@ body {
 }
 
 div {
+	border: thick;
+	border-color: black;
 	background-color: #ffffff;
-	width: 55%;
+	width: 50%;
+	min-width: 300px;
 	margin: auto;
 	text-align: center;
+	background-color: #ffffff;
 }
 
 div textarea, div input[type=text], div input[type=password] {
@@ -115,21 +119,23 @@ input[type=text]:focus, input[type=password]:focus {
 	margin-bottom: 10px;
 	padding-top: 5px;
 	padding-bottom: 5px;
-	width: 50%;
-	padding-right: 50%;
-	
 }
 
 .display {
-	float: right;
-	width: 50%;
+	
 }
 
 .display input[type=text], .display input[type=password] {
 	border: none;
 }
 
-#user, #password{
+.container {
+	background-color: #dfe3ee;
+	color: #000000;
+	width: 100%;
+}
+
+#user, #password {
 	height: auto;
 	width: auto;
 }
