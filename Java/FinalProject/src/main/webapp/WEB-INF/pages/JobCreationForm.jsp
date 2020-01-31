@@ -7,14 +7,31 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resources/BasicFormat.css" />
 <title>Job Registration</title>
 </head>
 <body>
-	<div align="center">
+	<div class="nav">
+		<table>
+			<tr>
+				<td><a href="index">Home</a></td>
+			</tr>
+		</table>
+	</div>
+	<div>
+		<table>
+			<tr>
+				<td><a>Home</a></td>
+			</tr>
+		</table>
+	</div>
+	<div class="body" align="center">
 		<h2>Job</h2>
-		<form:form action="saveJob" method="POST" modelAttribute="job" name="job">
+		<form:form action="saveJob" method="POST" modelAttribute="job"
+			name="job">
 			<table>
-				<form:hidden path="id"/>
+				<form:hidden path="id" />
 				<tr>
 					<c:set var="now" value="<%=new java.util.Date()%>" />
 					<fmt:formatDate pattern="dd/MM/yyyy" value="${now}" var="today" />
@@ -23,45 +40,40 @@
 							readonly="true" /></td>
 				</tr>
 				<tr>
-					<td>Title: </td>
-					<td><form:errors path="title" />
-						<form:input path="title" /></td>
+					<td>Title:</td>
+					<td><form:errors path="title" /> <form:input path="title" /></td>
 				</tr>
 				<tr>
-					<td>Description: </td>
-					<td><form:errors path="description" />
-						<form:input path="description" /></td>
+					<td>Description:</td>
+					<td><form:errors path="description" /> <form:input
+							path="description" /></td>
 				</tr>
 				<tr>
-					<td>Salary: </td>
-					<td><form:errors path="salary" />
-						<form:input path="salary" /></td>
+					<td>Salary:</td>
+					<td><form:errors path="salary" /> <form:input path="salary" /></td>
 				</tr>
 				<tr>
-					<td>Type: </td>
-					<td><form:errors path="type" />
-						<form:select path="type">
-							<form:option value="--" label="--Choose"/>
-							<form:option value="PERM" label="Permanent"/>
-							<form:option value="CONT" label="Contract"/>
-							<form:option value="INTE" label="Internship"/>
-							<form:option value="FREE" label="Freelance"/>
+					<td>Type:</td>
+					<td><form:errors path="type" /> <form:select path="type">
+							<form:option value="--" label="--Choose" />
+							<form:option value="PERM" label="Permanent" />
+							<form:option value="CONT" label="Contract" />
+							<form:option value="INTE" label="Internship" />
+							<form:option value="FREE" label="Freelance" />
 						</form:select></td>
 				</tr>
 				<tr>
-					<td>Required Skills: </td>
-					<td><form:errors path="reqSkills" />
-						<form:textarea path="reqSkills" /></td>
+					<td>Required Skills:</td>
+					<td><form:errors path="reqSkills" /> <form:textarea
+							path="reqSkills" /></td>
 				</tr>
 				<tr>
-					<td>City: </td>
-					<td><form:errors path="city" />
-						<form:input path="city" /></td>
+					<td>City:</td>
+					<td><form:errors path="city" /> <form:input path="city" /></td>
 				</tr>
 				<tr>
-					<td>End Date: </td>
-					<td><form:errors path="endDate" />
-						<form:input path="endDate" /></td>
+					<td>End Date:</td>
+					<td><form:errors path="endDate" /> <form:input path="endDate" /></td>
 				</tr>
 			</table>
 			<input type="Submit" value="Submit" />

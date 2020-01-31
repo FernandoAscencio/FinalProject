@@ -28,7 +28,6 @@ public class WorkExperience {
 	@Column
 	private String title;
 
-	@CreationTimestamp
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Column(name = "start_date")

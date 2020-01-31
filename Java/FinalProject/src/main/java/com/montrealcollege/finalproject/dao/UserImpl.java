@@ -1,15 +1,12 @@
 package com.montrealcollege.finalproject.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.montrealcollege.finalproject.model.Job;
 import com.montrealcollege.finalproject.model.Login;
 import com.montrealcollege.finalproject.model.User;
 

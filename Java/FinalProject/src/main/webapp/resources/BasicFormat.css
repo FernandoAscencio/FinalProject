@@ -1,0 +1,135 @@
+html, body {
+	font-family: Arial, "Times New Roman";
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	background-color: #dfe3ee;
+	color: #000000;
+}
+
+div {
+	background-color: #ffffff;
+	width: 55%;
+	margin: auto;
+	text-align: center;
+}
+
+div textarea, div input[type=text], div input[type=password] {
+	display: inline-block;
+	height: 100%;
+	width: 100%;
+}
+
+div textarea {
+	height: 100px;
+}
+
+h1, h2, h3 {
+	text-align: center;
+}
+
+a:link, a:visited {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+table, th, td {
+	padding: 5px;
+}
+
+table {
+	width: 100%;
+	margin: 0%;
+	table-layout: fixed;
+}
+
+th {
+	background-color: #f7f7f7;
+}
+
+td {
+	text-align: left;
+}
+
+td a {
+	display: inline-block;
+	height: 100%;
+	width: 100%;
+}
+
+input[type=text], input[type=password] {
+	background-color: #ffffff;
+	box-sizing: border-box;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+	border: 1px solid #ffffff;
+}
+
+.nav {
+	background-color: #3b5998;
+	text-align: center;
+	position: fixed;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.nav table {
+	table-layout: fixed;
+}
+
+.nav td {
+	text-align: center;
+}
+
+.body {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.body a, .add a, .display a {
+	display: inline-block;
+	height: 100%;
+	width: 100%;
+}
+
+.body a:link, .body a:visited, .add a:link, .add a:visited, .display a:link,
+	.display a:visited {
+	color: #3b5998;
+	text-decoration: none;
+}
+
+.body a:hover, .add a:hover, .display a:hover {
+	text-decoration: underline;
+}
+
+.add {
+	margin-bottom: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	width: 50%;
+	padding-right: 50%;
+	
+}
+
+.display {
+	float: right;
+	width: 50%;
+}
+
+.display input[type=text], .display input[type=password] {
+	border: none;
+}
+
+#user, #password{
+	height: auto;
+	width: auto;
+}

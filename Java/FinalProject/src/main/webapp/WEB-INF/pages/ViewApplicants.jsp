@@ -7,11 +7,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resources/BasicFormat.css" />
 <title>Applicants</title>
 </head>
 <body>
-	<a href="index">Logo</a>
-	<div align="center">
+	<div class="nav">
+		<table>
+			<tr>
+				<td><a href="index">Home</a></td>
+			</tr>
+		</table>
+	</div>
+	<div>
+		<table>
+			<tr>
+				<td><a>Home</a></td>
+			</tr>
+		</table>
+	</div>
+	<div class="body" align="center">
 		<h1>Applicants</h1>
 		<table>
 			<c:forEach var="app" items="${applicants}">

@@ -12,7 +12,9 @@ public class CurriculumVitae {
 	private Skills skills;
 	
 	private int userId;
-
+	
+	public CurriculumVitae () {}
+	
 	public CurriculumVitae(int userId) {
 		this.userId = userId;
 	}

@@ -31,7 +31,6 @@ public class Education {
 	@Column
 	private String institute;
 
-	@CreationTimestamp
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Column(name = "start_date")

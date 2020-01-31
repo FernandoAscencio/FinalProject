@@ -6,33 +6,42 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href=""/>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/BasicFormat.css" />
 <title>Job Finder 1000</title>
 </head>
 <body>
-	<div class=nav align="center">
-		<a href="index">Logo</a>
-		<c:if test="${!session.logedIn}">
-			<a href="login">Log In</a>
-			<a href="register">Register</a>
-		</c:if>
-		<c:if test="${session.logedIn}">
-			<a href="logout">Log Out</a>
-			<c:if test="${type == 'COMP'}">
-				<a href="jobs">Jobs</a>
-			</c:if>
-			<c:if test="${type == 'CAND'}">
-				<a href="curriculumVitae">CV</a>
-				<a href="applied">Jobs Applied</a>
-			</c:if>
-			<a href="profile">Profile</a>
-		</c:if>
-
+	<div class="nav">
+		<table>
+			<tr>
+				<td><a href="index">Home</a></td>
+				<c:if test="${!session.logedIn}">
+					<td><a id="nav" href="login">Log In</a></td>
+					<td><a href="register">Register</a></td>
+				</c:if>
+				<c:if test="${session.logedIn}">
+					<td><a href="logout">Log Out</a></td>
+					<c:if test="${type == 'COMP'}">
+						<td><a href="jobs">Jobs</a></td>
+					</c:if>
+					<c:if test="${type == 'CAND'}">
+						<td><a href="curriculumVitae">CV</a></td>
+						<td><a href="applied">Jobs Applied</a></td>
+					</c:if>
+					<td><a href="profile">Profile</a></td>
+				</c:if>
+			</tr>
+		</table>
 	</div>
-
-	<div class=list align="left">
+	<div>
+		<table>
+			<tr>
+				<td><a>Home</a></td>
+			</tr>
+		</table>
+	</div>
+	<div class="body">
 		<!-- List Job postings -->
-		<h2 align="center">Jobs</h2>
+		<h1>Jobs</h1>
 		<table>
 			<c:forEach var="job" items="${jobs}">
 				<tr>

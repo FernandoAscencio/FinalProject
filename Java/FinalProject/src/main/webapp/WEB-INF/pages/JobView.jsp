@@ -7,11 +7,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resources/BasicFormat.css" />
 <title>Job</title>
 </head>
 <body>
-	<a href="index">Logo</a>
+	<div class="nav">
+		<table>
+			<tr>
+				<td><a href="index">Home</a></td>
+			</tr>
+		</table>
+	</div>
 	<div>
+		<table>
+			<tr>
+				<td><a>Home</a></td>
+			</tr>
+		</table>
+	</div>
+	<div class="body">
 		<table>
 			<tr>
 				<th colspan="4"><h2>${job.title}</h2></th>
@@ -27,12 +42,14 @@
 				<td>${job.endDate}</td>
 			</tr>
 			<tr>
-				<td>Address:</td>
+				<th align="left" colspan="4">Address:</th>
+			</tr>
+			<tr>
 				<td colspan="3">${job.city}</td>
 			</tr>
 			<tr>
-				<td colspan="2">Salary:</td>
-				<td colspan="2">${job.salary}</td>
+				<td colspan="1">Salary:</td>
+				<td colspan="3">${job.salary}</td>
 			</tr>
 			<tr>
 				<td colspan="4">Required Skills</td>
@@ -47,17 +64,19 @@
 				<td colspan="4">${job.description}</td>
 			</tr>
 			<tr>
-			<td colspan="4">Company Description</td>
+				<td colspan="4">Company Description</td>
 			</tr>
 			<tr>
-			<td>${company.description}</td>
+				<td colspan="4">${company.description}</td>
 			</tr>
 		</table>
 		<c:if test="${session.logedIn}">
 			<c:if test="${session.userId == company.id}">
 				<a href="applicants?id=${job.id}">View Applicants</a>
 			</c:if>
+			<c:if test="${session.userId != company.id}">
 				<a href="apply?id=${job.id}">Apply</a>
+			</c:if>
 		</c:if>
 	</div>
 </body>

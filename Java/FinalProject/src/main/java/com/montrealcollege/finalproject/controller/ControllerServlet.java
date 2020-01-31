@@ -65,11 +65,6 @@ public class ControllerServlet {
 		return new Session();
 	}
 
-	@RequestMapping(method = RequestMethod.GET)
-	public String start(Model model) {
-		return "redirect:/index";
-	}
-
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String listJobs(@ModelAttribute("session") Session session, Model model) {
 		List<Job> jobs = js.listJob();
@@ -172,11 +167,15 @@ public class ControllerServlet {
 	@RequestMapping(value="/viewCV", method=RequestMethod.GET)
 	public String viewCV (@RequestParam("id") Integer id, Model model) {
 		CurriculumVitae cv = new CurriculumVitae(id);
-
+		Education edu = new Education();
+		WorkExperience we = new WorkExperience();
+		
 		cv.setEmployment(wes.listWorkExperienceByUser(id));
 		cv.setSchooling(es.listEducationByUser(id));
 		cv.setSkills(ss.listSkillsByUser(id));
 		
+		model.addAttribute("edu", edu);
+		model.addAttribute("we", we);
 		model.addAttribute("readonly", true);
 		model.addAttribute("cv", cv);
 		return "CVForm";
@@ -211,9 +210,8 @@ public class ControllerServlet {
 		} else {
 			if (user.getId() == 0) {
 				us.addUser(user);
-				Login log = new Login(user.getLogin(), user.getPassword());
-				model.addAttribute("login", log);
-				return "redirect:/processing";
+				model.addAttribute("login", new Login());
+				return "redirect:/login";
 			} else {
 				us.updateUser(user);
 				return "redirect:/index";
